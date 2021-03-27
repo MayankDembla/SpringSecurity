@@ -4,6 +4,7 @@ package com.dembla.spring.security.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -18,7 +19,8 @@ public class UserController {
         return "working on port : " + env.getProperty("local.server.port") ;
     }
 
-    @Secured("ROLE_developer")
+//    @Secured("ROLE_developer")
+    @PreAuthorize("hasRole('developer')") // security Expression
     @DeleteMapping("/delete/{id}")
     public String delete(@PathVariable String id){
         return "Deleted user with userid = " + id ;
