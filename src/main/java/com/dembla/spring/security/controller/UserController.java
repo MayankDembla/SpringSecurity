@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -20,10 +22,10 @@ public class UserController {
     }
 
 //    @Secured("ROLE_developer")
-    @PreAuthorize("hasRole('developer')") // security Expression
+    @PreAuthorize("hasAuthority('ROLE_developer')  or #id == #jwt.subject") // security Expression
     @DeleteMapping("/delete/{id}")
-    public String delete(@PathVariable String id){
-        return "Deleted user with userid = " + id ;
+    public String delete(@PathVariable String id , @AuthenticationPrincipal Jwt jwt){
+        return "Deleted user with userid = " + id  + "and JWT subject " + jwt.getSubject();
     }
 
 }
