@@ -14,7 +14,6 @@ public class UserController {
     @Autowired
     Environment env ;
 
-
     @GetMapping("/status/check")
     public String status(){
         return "working on port : " + env.getProperty("local.server.port") ;
