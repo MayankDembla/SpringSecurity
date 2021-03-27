@@ -12,7 +12,9 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .antMatchers(HttpMethod.GET,"/users/status/check")
-                .hasAuthority("SCOPE_profile")
+                // .hasAuthority("SCOPE_profile")
+                .hasRole("developer")
+                //.hasAnyRole("developer","user")
                 .anyRequest().authenticated()
                 .and()
                 .oauth2ResourceServer()
