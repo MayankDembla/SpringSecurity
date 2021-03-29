@@ -1,10 +1,10 @@
-package com.dembla.spring.security;
+package com.dembla.security.api.ApiGateway;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SecurityApplicationTests {
+class ApiGatewayApplicationTests {
 
 	@Test
 	void contextLoads() {
