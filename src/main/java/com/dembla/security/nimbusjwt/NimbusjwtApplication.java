@@ -1,13 +1,13 @@
-package com.dembla.spring.security;
+package com.dembla.security.nimbusjwt;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SecurityApplication {
+public class NimbusjwtApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SecurityApplication.class, args);
+		SpringApplication.run(NimbusjwtApplication.class, args);
 	}
 
 }
